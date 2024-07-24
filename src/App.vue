@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 
+const name = ('Weather App')
 const cityName = ref('manila');
 const temperature = ref(0);
 const weatherDescription = ref('');
@@ -55,7 +56,11 @@ const weatherIcon = computed(() => {
 </script>
 
 <template>
-  <div class="flex justify-center items-center min-h-screen bg-gradient-to-r from-violet-500 to-fuchsia-500">
+  <div class="flex flex-col items-center min-h-screen bg-gradient-to-r from-violet-500 to-fuchsia-500 pt-12">
+    <header class="text-center mb-4 mt-10">
+      <h1 class="text-4xl font-extrabold text-gray-100">{{ name }}</h1>
+      <p class="text-gray-100 text-md max-w-sm">Wherever you go, no matter what the weather, always bring your own sunshine</p>
+    </header>
     <div class="w-full max-w-lg mx-4 p-6 bg-white border border-gray-200 rounded-lg shadow-md transition-all ease-in-out duration-1000" :class="{'translate-y-4 opacity-0': !temperature}">
       <form @submit="handleSubmit" class="mb-2">
         <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
